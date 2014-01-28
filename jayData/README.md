@@ -51,4 +51,4 @@ jdStore.insert({
 	jdStore.entityContext().saveChanges();
 });
 ```
-**Note that the JayData extension requires the application to reference oDataProvider.js or oDataProvider.min.js.**
+**NOTE:** that the JayData extension requires the application to reference oDataProvider.js or oDataProvider.min.js.
