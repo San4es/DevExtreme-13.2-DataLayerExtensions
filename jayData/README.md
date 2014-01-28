@@ -3,9 +3,10 @@ JayData-DataLayerExtension
 
 The JayData extension enables your PhoneJS application to work with an OData service accessed via the JayData library. The extension includes the JayDataStore class that wraps the JayData functionality with the [Store](http://phonejs.devexpress.com/Documentation/Howto/Data_Layer#Data_Layer_Creating_DataSource_What_Are_Stores) interface accepted within the [PhoneJS data layer](http://phonejs.devexpress.com/Documentation/Howto/Data_Layer#Data_Layer). 
 To create a JayDataStore instance, call its constructor and pass the required configuration object to it. The configuration object may contain the following fields:
- - **queryable** - Required. Takes on the JayData entity that should be accessed via this JayDataStore instance.
- - **autoCommit** - Optional. Specifies whether the changes made to the data are immediately committed to the server. The default value is false.
- 
+ - ```queryable``` - Required. Takes on the JayData entity that should be accessed via this JayDataStore instance.
+ - ```autoCommit``` - Optional. Specifies whether the changes made to the data are immediately committed to the server. The default value is false.
+
+``` 
 $data.Entity.extend("MyEntity", {
     id: { type: "int", key: true, computed: true },
     name: { type: String }
@@ -31,14 +32,15 @@ dataBase.onReady().then(function() {
 		autoCommit: true
 	});
 });
-
+```
 
 You can [read](http://phonejs.devexpress.com/Documentation/Howto/Data_Layer#Reading_Data) and [modify](http://phonejs.devexpress.com/Documentation/Howto/Data_Layer#Data_Modification) data associated with the current JayDataStore instance in the same way as data associated with any other Store. 
 Besides the standard Store methods, the JayDataStore contains several JayData specific methods.
- - **queryable()** - returns the JayData entity object associated with this JayDataStore.
- - **entityType()** - returns the type of the entity associated with this JayDataStore instance.
- - **entityContext()** - returns the JayData context containing the entity associated with this JayDataStore instance.
+ - ```queryable()``` - returns the JayData entity object associated with this JayDataStore.
+ - ```entityType()``` - returns the type of the entity associated with this JayDataStore instance.
+ - ```entityContext()``` - returns the JayData context containing the entity associated with this JayDataStore instance.
 
+```
 var jdStore = new DevExpress.data.JayDataStore(dataBase.MyEntities);
 jdStore.insert({
 	id: 1,
@@ -48,5 +50,5 @@ jdStore.insert({
 	console.log(jdStore.queryable().stateManager.trackedEntities);
 	jdStore.entityContext().saveChanges();
 });
-
-Note that the JayData extension requires the application to reference oDataProvider.js or oDataProvider.min.js.
+```
+**Note that the JayData extension requires the application to reference oDataProvider.js or oDataProvider.min.js.**
