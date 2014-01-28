@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>13551841-956a-47c8-baca-1539a851c0e3</ProjectGuid>
+    <AutoAssignPort>True</AutoAssignPort>
+    <RunInSimulator>True</RunInSimulator>
+    <ApplicationPage>index.html</ApplicationPage>
+    <Name>WebUI</Name>
+    <RootNamespace>WebUI</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="index.js" />
+    <Content Include="index.html" />
+    <Content Include="index.css" />
+    <Content Include="css\dx.common.css" />
+    <Content Include="css\dx.android.holo-dark.css" />
+    <Content Include="css\dx.desktop.default.css" />
+    <Content Include="css\dx.ios.default.css" />
+    <Content Include="css\dx.win8.black.css" />
+    <Content Include="css\dx.win8.white.css" />
+    <Content Include="css\dx.tizen.black.css" />
+    <Content Include="css\dx.tizen.white.css" />
+    <Content Include="css\dx.generic.light.css" />
+    <Content Include="data\db.js" />
+    <Content Include="js\jaydata\datajs.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\jaydata\dx.data.jayData.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\jaydata\jaydata.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\jaydata\northwind.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\jaydata\oDataProvider.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="layouts\SlideOut\SlideOutLayout.js" />
+    <Content Include="layouts\SlideOut\SlideOutLayout.css" />
+    <Content Include="layouts\SlideOut\SlideOutLayout.html" />
+    <Content Include="layouts\Simple\SimpleLayout.js" />
+    <Content Include="layouts\Simple\SimpleLayout.css" />
+    <Content Include="layouts\Simple\SimpleLayout.html" />
+    <Content Include="js\dx.all.js" />
+    <Content Include="js\globalize.min.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
+    <Content Include="js\jquery-2.0.3.min.js" />
+    <Content Include="js\knockout-3.0.0.js" />
+    <Content Include="views\about.html" />
+    <Content Include="app.config.js" />
+    <Content Include="views\categories.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\categories.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\product-details.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\product-details.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\product-edit.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\product-edit.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\products.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\products.js">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="data\" />
+    <Folder Include="js\" />
+    <Folder Include="js\jaydata" />
+    <Folder Include="layouts\" />
+    <Folder Include="layouts\Simple\" />
+    <Folder Include="layouts\SlideOut\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <Target Name="Build">
+    <!--
+    <Message Text="'$(MSBuildToolsPath)'"></Message>
+    -->
+    <Message Text="Build JSProject '$(MSBuildProjectFile)':" Importance="high">
+    </Message>
+    <Message Text="Copying refenecses to output dir..." Importance="high" />
+    <MSBuild Targets="Build" Projects="@(ProjectReference)" Properties="OutputPath=$([System.IO.Path]::GetFullPath('$(OutputPath)'))">
+    </MSBuild>
+    <Message Text="Copying files to output dir..." Importance="high" />
+    <Copy SourceFiles="@(Content)" DestinationFiles="@(Content->'$(OutputPath)%(RelativeDir)%(Filename)%(Extension)')" />
+    <Message Text="Finished Build JSProject '$(MSBuildProjectFile)'." Importance="high">
+    </Message>
+  </Target>
+  <Target Name="CreateManifestResourceNames" Condition="'@(ResxWithNoCulture)@(ResxWithCulture)@(NonResxWithNoCulture)@(NonResxWithCulture)'!=''" />
+  <Target Name="Rebuild" DependsOnTargets="Clean;Build">
+  </Target>
+  <Target Name="Clean">
+    <!--
+    <Message Text="Cleaning Output files..." Importance="high" />
+    <Delete Files="@([System.IO.Path]::GetFullPath('$(OutputPath)'))" />
+    -->
+    <Message Text="Cleaning Output dir ($([System.IO.Path]::GetFullPath('$(OutputPath)')))..." Importance="high" />
+    <RemoveDir Directories="$([System.IO.Path]::GetFullPath('$(OutputPath)'))" />
+  </Target>
+</Project>

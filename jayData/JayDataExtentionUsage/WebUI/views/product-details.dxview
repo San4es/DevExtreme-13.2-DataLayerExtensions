@@ -1,0 +1,52 @@
+<div data-options="dxView: { name: 'ProductDetails', title: 'Product' }">
+    <div data-bind="dxCommand: { action: '#ProductEdit/{id}', direction: 'none', id: 'edit', title: 'Edit', icon: 'edit' }"></div>
+    <div data-bind="dxCommand: { action: handleDelete, id: 'delete', title: 'Delete', icon: 'remove' }"></div>
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxScrollView: {}">
+            <h2 class="view-header" data-bind="text: product.ProductName"></h2>
+            <div class="dx-fieldset dx-fieldset-readonly">
+                <div class="dx-field">
+                    <div class="dx-field-label">Product id</div>
+                    <div class="dx-field-value" data-bind="text: product.ProductID"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Product name</div>
+                    <div class="dx-field-value" data-bind="text: product.ProductName"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Supplier</div>
+                    <div class="dx-field-value" data-bind="text: product.Supplier.CompanyName"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Category</div>
+                    <div class="dx-field-value" data-bind="text: product.Category.CategoryName"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Quantity per unit</div>
+                    <div class="dx-field-value" data-bind="text: product.QuantityPerUnit"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Unit price</div>
+                    <div class="dx-field-value" data-bind="text: product.UnitPriceFormatted"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Units in stock</div>
+                    <div class="dx-field-value" data-bind="text: product.UnitsInStock"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Units on order</div>
+                    <div class="dx-field-value" data-bind="text: product.UnitsOnOrder"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Reorder level</div>
+                    <div class="dx-field-value" data-bind="text: product.ReorderLevel"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Discontinued</div>
+                    <div class="dx-field-value" data-bind="text: product.Discontinued"></div>
+                </div>
+            </div>
+            <div data-options="dxContentPlaceholder : { name: 'view-footer', transition: 'none' } " ></div>
+        </div>
+    </div>
+</div>

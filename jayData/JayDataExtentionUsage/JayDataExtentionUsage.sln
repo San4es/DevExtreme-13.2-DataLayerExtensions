@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{22EDBF1E-E64E-4509-AD89-C77F10229CA5}"
+EndProject
+Project("{1B19158F-E398-40A6-8E3B-350508E125F1}") = "WebUI", "WebUI\WebUI.dxjsproj", "{13551841-956A-47C8-BACA-1539A851C0E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22EDBF1E-E64E-4509-AD89-C77F10229CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22EDBF1E-E64E-4509-AD89-C77F10229CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22EDBF1E-E64E-4509-AD89-C77F10229CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22EDBF1E-E64E-4509-AD89-C77F10229CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13551841-956A-47C8-BACA-1539A851C0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13551841-956A-47C8-BACA-1539A851C0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13551841-956A-47C8-BACA-1539A851C0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13551841-956A-47C8-BACA-1539A851C0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
