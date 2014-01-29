@@ -316,10 +316,10 @@
 
         _updateImpl: function(keyValue, values) {
             var d = $.Deferred();
-
             this.byKey(keyValue)
                 .fail(d.reject)
                 .done($.proxy(function(entity) {
+                    this.queryable().attach(entity);
                     $.each(values, function(propName, propValue) {
                         entity.setProperty({ name: propName }, propValue);
                     });

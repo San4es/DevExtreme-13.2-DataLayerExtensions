@@ -316,20 +316,19 @@
 
         _updateImpl: function(keyValue, values) {
             var d = $.Deferred();
-            var self = this;
             this.byKey(keyValue)
                 .fail(d.reject)
                 .done($.proxy(function(entity) {
+                    this.queryable().attach(entity);
                     $.each(values, function(propName, propValue) {
                         entity.setProperty({ name: propName }, propValue);
                     });
                     if(!this._autoCommit)
                         d.resolve(keyValue, values);
-                    else entity.save()
+                    else this.entityContext()
+                            .saveChanges()
                             .fail(d.reject)
-                            .done(function () {
-                                d.resolve(keyValue, values);
-                            });
+                            .done(function() { d.resolve(keyValue, values); });
                 }, this));
 
             return d.promise();
