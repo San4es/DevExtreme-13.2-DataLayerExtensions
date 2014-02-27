@@ -1,5 +1,9 @@
 ﻿(function($, DX, undefined) {
-    var dataNs = DX.data,
+    var operatorMap = {
+            "=": "eq",
+            "<>": "ne"
+        },
+        dataNs = DX.data,
         utilsNs = DX.utils;
 
     function createBreezeQuery(entityManager, resourceNameOrQuery, queryOptions, tasks) {
@@ -23,10 +27,7 @@
             var Predicate = breeze.Predicate;
 
             function translateBinaryOperator(op) {
-                return {
-                    "=": "eq",
-                    "<>": "ne"
-                }[op] || op;
+                return operatorMap[op] || op;
             }
 
             function compileBinary(criteria) {

@@ -1,5 +1,13 @@
 ﻿(function($, DX, undefined) {
-    var dataNs = DX.data,
+    var operatorMap = {
+            "=": "==",
+            "<>": "!=",
+            "endswith": ".endsWith",
+            "contains": ".contains",
+            "startswith": ".startsWith",
+            "notcontains": ".notcontains"
+        },
+        dataNs = DX.data,
         utilsNs = DX.utils,
         inflectorNs = DX.inflector;
 
@@ -141,14 +149,7 @@
             }
 
             function translateBinaryOperator(op) {
-                return {
-                    "=": "==",
-                    "<>": "!=",
-                    "endswith": ".endsWith",
-                    "contains": ".contains",
-                    "startswith": ".startsWith",
-                    "notcontains": ".notcontains"
-                }[op] || op;
+                return operatorMap[op] || op;
             }
 
             function compileCore(criteria) {
