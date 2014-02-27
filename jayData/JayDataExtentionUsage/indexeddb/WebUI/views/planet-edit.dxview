@@ -1,0 +1,38 @@
+<div data-options="dxView : { name: 'PlanetEdit', title: '' } ">
+    <div data-bind="dxCommand: { action: handleSave, id: 'save', title: 'Save', icon: 'save' } "></div>
+    <div data-bind="dxCommand: { action: '#_back', id: 'cancel', behavior: 'back', title: 'Cancel', icon: 'close' }" ></div>
+    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div data-bind="dxScrollView: {}">
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div class="dx-field-label">Id: </div>
+                    <div class="dx-field-value" data-bind="dxNumberBox: { value: planet.Id, readOnly: true }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Name: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: planet.Name, placeholder: 'Enter planet name' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Mass: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: planet.Mass, placeholder: 'Enter planet mass' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Aphelion: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: planet.Aphelion, placeholder: 'Enter planet aphelion' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Perihelion: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: planet.Perihelion, placeholder: 'Enter planet perihelion' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Populated: </div>
+                    <div class="dx-field-value" data-bind="dxSwitch: { onText: 'Yes', offText: 'No', value: planet.Populated, placeholder: 'Is planet populated?' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Image src: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: planet.ImageSrc, placeholder: 'Enter uri to planet image' }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

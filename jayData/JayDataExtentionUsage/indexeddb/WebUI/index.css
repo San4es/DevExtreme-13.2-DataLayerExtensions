@@ -1,0 +1,39 @@
+﻿html, 
+body,
+.dx-viewport {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.image-box {
+    text-align: center;
+}
+
+    .image-box > img {
+        width: 350px;
+        height: 350px;
+        border: none;
+    }
+
+.search-box {
+    padding:0 5px;
+    margin:0 5px;
+    border: 1px solid #444;
+    height: 37px;
+}
+
+.planets-box {
+    top: 39px;
+    bottom: 0;
+    position:absolute;
+
+    width: 100%;
+}
+
+.view-header {
+    text-align: center;
+}

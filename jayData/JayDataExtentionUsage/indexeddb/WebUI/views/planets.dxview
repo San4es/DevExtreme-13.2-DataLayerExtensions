@@ -1,0 +1,20 @@
+<div data-options="dxView : { name: 'Planets', title: 'planets' } " >
+    <div data-bind="dxCommand: { action: '#PlanetEdit', direction: 'none', id: 'create', title: 'Add', icon: 'plus' }"></div>
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div class="search-box">
+            <div data-bind="dxTextBox: {
+                    placeholder: 'Filter',
+                    mode: 'search',
+                    value: searchQuery,
+                    valueUpdateEvent: 'keyup'
+                }"></div>
+        </div>
+        <div class="planets-box">
+            <div data-bind="dxList: { dataSource: dataSource, pullRefreshEnabled: true }">
+                <div data-bind="dxAction: '#PlanetDetails/{Id}'" data-options="dxTemplate : { name: 'item' } " >
+                    <div class="list-item" data-bind="text: Name"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

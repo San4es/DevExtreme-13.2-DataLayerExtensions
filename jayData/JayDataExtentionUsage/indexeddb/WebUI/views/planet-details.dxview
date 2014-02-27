@@ -1,0 +1,39 @@
+<div data-options="dxView : { name: 'PlanetDetails', title: 'Details' } " >
+    <div data-bind="dxCommand: { action: '#PlanetEdit/{id}', direction: 'none', id: 'edit', title: 'Edit', icon: 'edit' }"></div>
+    <div data-bind="dxCommand: { action: handleDelete, id: 'delete', title: 'Delete', icon: 'remove' }"></div>
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxScrollView: {}">
+            <h2 class="view-header" data-bind="text: planet.Name"></h2>
+            <div class="image-box">
+                <img data-bind="attr: { src: planet.ImageSrc }" />
+            </div>
+            <div class="dx-fieldset dx-fieldset-readonly">
+                <div class="dx-field">
+                    <div class="dx-field-label">Id</div>
+                    <div class="dx-field-value" data-bind="text: planet.Id"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Name</div>
+                    <div class="dx-field-value" data-bind="text: planet.Name"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Mass</div>
+                    <div class="dx-field-value" data-bind="text: planet.Mass"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Aphelion</div>
+                    <div class="dx-field-value" data-bind="text: planet.Aphelion"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Perihelion</div>
+                    <div class="dx-field-value" data-bind="text: planet.Perihelion"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Populated</div>
+                    <div class="dx-field-value" data-bind="text: planet.Populated() ? 'Yes' : 'No'"></div>
+                </div>
+            </div>
+            <div data-options="dxContentPlaceholder : { name: 'view-footer', transition: 'none' } " ></div>
+        </div>
+    </div>
+</div>
