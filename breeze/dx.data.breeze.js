@@ -57,12 +57,11 @@
                     nextGroupOperator;
 
                 $.each(criteria, function() {
-                    if(groupOperands.length > 1 && nextGroupOperator !== groupOperator)
-                        throw Error("Mixing of and/or is not allowed inside a single group");
-
-                    groupOperator = nextGroupOperator;
-
                     if($.isArray(this)) {
+                        if(groupOperands.length > 1 && nextGroupOperator !== groupOperator)
+                            throw Error("Mixing of and/or is not allowed inside a single group");
+
+                        groupOperator = nextGroupOperator;
                         groupOperands.push(compileCore(this));
                         nextGroupOperator = "and";
                     } else {
@@ -201,7 +200,7 @@
             entityQuery = prepareEntityQuery(filteredTasks);
             entityQuery = entityQuery
                 .inlineCount(true)
-                .withParameters($.extend({}, entityQuery.parameters, { $top: 0 }));
+                .take(0);
 
             entityManager
                 .executeQuery(entityQuery)
