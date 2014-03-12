@@ -1,5 +1,13 @@
 ﻿(function($, DX, undefined) {
-    var dataNs = DX.data,
+    var operatorMap = {
+            "=": "==",
+            "<>": "!=",
+            "endswith": ".endsWith",
+            "contains": ".contains",
+            "startswith": ".startsWith",
+            "notcontains": ".notcontains"
+        },
+        dataNs = DX.data,
         utilsNs = DX.utils,
         inflectorNs = DX.inflector;
 
@@ -141,14 +149,7 @@
             }
 
             function translateBinaryOperator(op) {
-                return {
-                    "=": "==",
-                    "<>": "!=",
-                    "endswith": ".endsWith",
-                    "contains": ".contains",
-                    "startswith": ".startsWith",
-                    "notcontains": ".notcontains"
-                }[op] || op;
+                return operatorMap[op] || op;
             }
 
             function compileCore(criteria) {
@@ -163,12 +164,11 @@
                     nextGroupOperator;
 
                 $.each(criteria, function() {
-                    if(groupOperands.length > 1 && nextGroupOperator !== groupOperator)
-                        throw Error("Mixing of and/or is not allowed inside a single group");
-
-                    groupOperator = nextGroupOperator;
-
                     if($.isArray(this)) {
+                        if(groupOperands.length > 1 && nextGroupOperator !== groupOperator)
+                            throw Error("Mixing of and/or is not allowed inside a single group");
+
+                        groupOperator = nextGroupOperator;
                         groupOperands.push(compileCore(this));
                         nextGroupOperator = " && ";
                     } else {
