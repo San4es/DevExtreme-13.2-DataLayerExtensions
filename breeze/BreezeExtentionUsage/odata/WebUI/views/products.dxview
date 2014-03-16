@@ -1,0 +1,10 @@
+<div data-options="dxView : { name: 'Products', title: 'Products' } " >
+     <div data-bind="dxCommand: { action: '#ProductEdit', direction: 'none', id: 'create', title: 'Add', icon: 'plus' }"></div>
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxList: { dataSource: dataSource, pullRefreshEnabled: true }">
+            <div data-bind="dxAction: '#ProductDetails/{ProductID}'" data-options="dxTemplate : { name: 'item' } " >
+                <div class="list-item" data-bind="text: ProductName"></div>
+            </div>
+        </div>
+    </div>
+</div>

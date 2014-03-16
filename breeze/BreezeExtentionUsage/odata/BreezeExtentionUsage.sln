@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{EB6F867F-92E8-488D-8C41-D7E94E6E8BAF}"
+EndProject
+Project("{1B19158F-E398-40A6-8E3B-350508E125F1}") = "WebUI", "WebUI\WebUI.dxjsproj", "{EBDE0A49-D311-4AF0-B994-81F068D70A80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB6F867F-92E8-488D-8C41-D7E94E6E8BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6F867F-92E8-488D-8C41-D7E94E6E8BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6F867F-92E8-488D-8C41-D7E94E6E8BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6F867F-92E8-488D-8C41-D7E94E6E8BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBDE0A49-D311-4AF0-B994-81F068D70A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDE0A49-D311-4AF0-B994-81F068D70A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDE0A49-D311-4AF0-B994-81F068D70A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDE0A49-D311-4AF0-B994-81F068D70A80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

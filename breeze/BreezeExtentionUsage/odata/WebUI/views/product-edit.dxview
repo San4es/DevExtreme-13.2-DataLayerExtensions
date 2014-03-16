@@ -1,0 +1,50 @@
+<div data-options="dxView : { name: 'ProductEdit', title: 'product-edit' } " >
+    <div data-bind="dxCommand: { action: handleSave, id: 'save', title: 'Save', icon: 'save' } "></div>
+    <div data-bind="dxCommand: { action: '#_back', id: 'cancel', behavior: 'back', title: 'Cancel', icon: 'close' }" ></div>
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxScrollView: {}">
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div class="dx-field-label">Product id: </div>
+                    <div class="dx-field-value" data-bind="dxNumberBox: { value: product.ProductID, readOnly: true }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Product name: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: product.ProductName, placeholder: 'Enter product name' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Supplier: </div>
+                    <div class="dx-field-value" data-bind='dxLookup: { dataSource: suppliersSource, value: product.SupplierID, valueExpr: "SupplierID", displayExpr: "CompanyName", title: "Suppliers" }'></div>                     
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Category: </div>
+                    <div class="dx-field-value" data-bind='dxLookup: { dataSource: categoriesSource, value: product.CategoryID, valueExpr: "CategoryID", displayExpr: "CategoryName", title: "Categories" }'></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Quantity per unit: </div>
+                    <div class="dx-field-value" data-bind="dxTextBox: { value: product.QuantityPerUnit, placeholder: 'Enter quantity per unit' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Unit price: </div>
+                    <div class="dx-field-value" data-bind="dxNumberBox: { value: product.UnitPrice, placeholder: 'Enter unit price' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Units in stock: </div>
+                    <div class="dx-field-value" data-bind="dxNumberBox: { value: product.UnitsInStock, placeholder: 'Enter units in stock' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Units on order: </div>
+                    <div class="dx-field-value" data-bind="dxNumberBox: { value: product.UnitsOnOrder, placeholder: 'Enter units on order' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Reorder level: </div>
+                    <div class="dx-field-value" data-bind="dxNumberBox: { value: product.ReorderLevel, placeholder: 'Enter reorder level' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Discontinued: </div>
+                    <div class="dx-field-value" data-bind="dxSwitch: { value: product.Discontinued, placeholder: 'Enter discontinued' }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
