@@ -152,7 +152,8 @@
             selectParam = $.map(selectHash, function(v, k) { return k }).join();
 
             expandItems = $.map(expandHash, function(v, k) { return k });
-            if(resourceNameOrQuery instanceof breeze.EntityQuery)
+
+            if((resourceNameOrQuery instanceof breeze.EntityQuery) && resourceNameOrQuery.expandClause)
                 expandItems = expandItems.concat(resourceNameOrQuery.expandClause.propertyPaths);
             expandParam = expandItems.join();
 
