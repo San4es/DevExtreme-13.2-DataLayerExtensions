@@ -176,7 +176,7 @@
                     }
                 });
 
-                return groupOperands.length < 2 ? groupOperands[0] : groupOperands.join(groupOperator);
+                return groupOperands.length < 2 ? groupOperands[0] : "(" + groupOperands.join(groupOperator) + ")";
             }
 
             function compileBinary(criteria) {
